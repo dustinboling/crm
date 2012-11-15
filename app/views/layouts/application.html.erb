@@ -13,7 +13,7 @@
     <div class="container">
       <div id="site-logo">
         <% if current_user %>
-          <h1><%= link_to "DK/AMANS Valve", profile_path(current_user.id)  %></h1>
+          <h1><%= link_to "DK/AMANS Valve", root_url%></h1>
         <% else %>
           <h1><%= link_to "DK/AMANS Valve", root_url %></h1>
         <% end %>
