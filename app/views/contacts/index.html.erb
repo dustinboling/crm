@@ -31,7 +31,7 @@
 
           <ul class="tag-list">
             <% c.tags.each do |t| %>
-              <li class="tag btn-inline grey"><%= link_to t.name, profile_path(@user.id, :tag => t.name) %></li>
+              <li class="tag btn-inline grey"><%= link_to t.name, profile_contacts_path(:tag => t.name) %></li>
             <% end %>
           </ul>
 
@@ -50,9 +50,9 @@
   <h5>Sort by Tag</h5>
   <ul id="tag-sorter">
     <% @tag_list.each do |tag| %>
-      <li><%= link_to tag, profile_path(@user.id, :tag => tag) %></li>
+      <li><%= link_to tag, profile_contacts_path(:tag => tag) %></li>
     <% end unless @tag_list.nil? %>
-    <li><%= link_to "Show All", profile_path(@user.id) %></li>
+    <li><%= link_to "Show All", profile_contacts_path %></li>
   </ul>
 </div>
 
