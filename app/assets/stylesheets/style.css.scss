@@ -268,6 +268,18 @@ body {
 .container {
   margin: 0 auto;
   width: 960px;
+
+  #app-nav {
+    margin-top:  10px;
+
+    a {
+      color: blue;
+      font-size: 19px;
+      padding-right: 10px;
+      text-decoration: none;
+      text-transform: uppercase;
+    }
+  }
 }
 
 .subtitle {
