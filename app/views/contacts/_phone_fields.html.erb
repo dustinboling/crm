@@ -1,0 +1,5 @@
+<tr>
+  <td><%= f.text_field :number, class: 'no-pad' %></td>
+  <td><%= f.select :location, Phone::TYPES, class: 'no-pad' %></td>
+  <td><%= link_to "Remove", '#', class: "remove_fields btn red" %></td>
+</tr>

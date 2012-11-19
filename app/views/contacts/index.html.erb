@@ -1,2 +1,58 @@
-<h1>Contacts#index</h1>
-<p>Find me in app/views/contacts/index.html.erb</p>
+<% @page_title = "Contacts" %>
+
+<h1 class="subtitle">All Contacts</h1>
+
+<div id="contacts">
+
+  <div id="add-things">
+    <%= link_to "+ Add contact", new_profile_contact_path(@user.id, @contact), class: 'btn green' %>
+    <input type="search"/ > Search
+  </div>
+
+  <% if @contacts.count > 0 %>
+    <% @contacts.each do |c| %>
+      <div class="contact-card">
+
+        <div class="contact-type">
+          <% phones = c.phones.order('id ASC') %>
+          <%= render_contact_type(phones) %>
+        </div>
+
+        <div class="contact-details">
+          <h4><%= link_to c.full_name, profile_contact_path(@user.id, c) %></h4>
+
+          <address>
+            <% unless c.title.blank? || c.company.blank? %>
+              <%= c.title %> at <%= c.company %><br>
+            <% end %>
+            <%= c.email %><br>
+            <%= number_to_phone(c.phones.first_number) %><br>
+          </address>
+
+          <ul class="tag-list">
+            <% c.tags.each do |t| %>
+              <li class="tag btn-inline grey"><%= link_to t.name, profile_path(@user.id, :tag => t.name) %></li>
+            <% end %>
+          </ul>
+
+        </div>
+      </div>
+    <% end %>
+  <% else %>
+    <p>
+      You don't have any contacts yet, <%= link_to "Add one!", new_profile_contact_path(@user.id, @contact) %>
+    </p>
+  <% end %>
+  <%= paginate @contacts %>
+</div>
+
+<div id="right-sidebar">
+  <h5>Sort by Tag</h5>
+  <ul id="tag-sorter">
+    <% @tag_list.each do |tag| %>
+      <li><%= link_to tag, profile_path(@user.id, :tag => tag) %></li>
+    <% end unless @tag_list.nil? %>
+    <li><%= link_to "Show All", profile_path(@user.id) %></li>
+  </ul>
+</div>
+

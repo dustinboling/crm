@@ -1,3 +1,105 @@
 // Place all the styles related to the profile controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+#profile {
+
+  #sidebar {
+    float: left;
+    width: 180px;
+
+    ul#navigation {
+      margin-top: 20px;
+
+      li {
+        font-size: 19px;
+        line-height: 1.3;
+        text-transform: uppercase;
+
+        a {
+          color: #444;
+          text-decoration: none;
+        }
+      }
+    }
+  }
+
+  #content {
+    float: left;
+    margin-top: 10px;
+    width: 760px;
+  }
+
+  #contacts {
+    float: left;
+    width: 600px;
+
+    #add-things {
+      border-bottom: 2px solid #C56342;
+      padding-bottom: 10px;
+    }
+
+    .contact-card {
+      border-bottom: 2px solid #9f9f9f;
+      display: inline-block;
+      padding: 10px 0;
+      width: 100%;
+
+      .contact-type {
+        border: 2px solid #222;
+        float: left;
+        margin-top: 5px;
+        height: 60px;
+        width: 60px;
+      }
+
+      .contact-details {
+        padding-left: 80px;
+
+        h4 {
+          line-height: 1.2;
+          margin-bottom: 0;
+          a {
+            color: #222;
+            text-decoration: none;
+          }
+        }
+        .tag-list {
+          display: inline;
+
+          .tag {
+            background-color: coral;
+            float: left;
+            margin-right: 5px;
+            a {
+              color: #fff;
+              letter-spacing: .05em;
+              text-decoration: none;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  #right-sidebar {
+    float: left;
+    padding-left: 20px;
+    width: 140px;
+
+    #tag-sorter {
+
+      li {
+        a {
+          color: #4183C4;
+          text-decoration: none;
+        }
+      }
+    }
+  }
+
+  /* FIX TD */
+  td {
+    padding: 9px 0 0;
+  }
+}
+

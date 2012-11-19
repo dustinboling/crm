@@ -1,16 +1,9 @@
 class ProfileController < ApplicationController
 
+  layout 'profile'
+
   def show
     @user = User.find(params[:id])
-    @tag_list = Profile.generate_tag_list(@user.id)
-
-    if params[:tag]
-      @contacts = @user.contacts.tagged_with(params[:tag])
-        .page(params[:page]).per(6)
-    else
-      @contacts = @user.contacts.order('last_name ASC')
-        .page(params[:page]).per(6)
-    end
   end
 
   def activity
@@ -23,4 +16,3 @@ class ProfileController < ApplicationController
   end
 
 end
-

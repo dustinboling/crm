@@ -1,7 +1,18 @@
 class ContactsController < ApplicationController
 
+  layout 'profile'
+
   def index
-    @contacts = Contact.all
+    @user = User.find(params[:profile_id])
+    @tag_list = Profile.generate_tag_list(@user.id)
+
+    if params[:tag]
+      @contacts = @user.contacts.tagged_with(params[:tag])
+        .page(params[:page]).per(6)
+    else
+      @contacts = @user.contacts.order('last_name ASC')
+        .page(params[:page]).per(6)
+    end
   end
 
   def show
@@ -19,7 +30,7 @@ class ContactsController < ApplicationController
     @contact.user_id = current_user.id
 
     if @contact.save
-      redirect_to profile_path, notice: "Contact created!"
+      redirect_to profile_path(1), notice: "Contact created!"
     end
   end
 
@@ -37,7 +48,10 @@ class ContactsController < ApplicationController
 
   def destroy
     @contact = Contact.find(params[:id])
-    @contact.destroy
+
+    if @contact.destroy
+      redirect_to profile_path(1), notice: "Contact destroyed!"
+    end
   end
 
 end

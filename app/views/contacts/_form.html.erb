@@ -1,0 +1,53 @@
+<%= form_for [:profile, @contact] do |f| %>
+
+  <%= f.label :tag_list, "Tags (separated by commas)" %>
+  <%= f.text_field :tag_list %>
+
+  <%= f.label :first_name %>
+  <%= f.text_field :first_name %>
+
+  <%= f.label :last_name %>
+  <%= f.text_field :last_name %>
+
+  <%= f.label :address %>
+  <%= f.text_field :address %>
+
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Number</th>
+        <th>Type</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <%= f.fields_for :phones do |builder| %>
+        <%= render 'phone_fields', f: builder %>
+      <% end %>
+      <tr>
+        <td><%= link_to_add_fields "Add Phone Number", f, :phones %></td>
+        <td></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <%= f.label :title %>
+  <%= f.text_field :title %>
+
+  <%= f.label :company %>
+  <%= f.text_field :company %>
+
+  <%= f.label :im, "Instant Message" %>
+  <%= f.text_field :im %>
+
+  <%= f.label :customer_id, "Customer ID" %>
+  <%= f.text_field :customer_id %>
+
+  <%= f.label :email %>
+  <%= f.text_field :email %>
+
+
+  <%= f.submit class: 'btn green' %>
+
+<% end %>
