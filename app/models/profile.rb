@@ -13,7 +13,7 @@ class Profile < ActiveRecord::Base
         end
       end
     end
-    tag_list = tag_ary.uniq
+    tag_list = tag_ary.uniq.sort
   end
 
 end
