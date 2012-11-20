@@ -13,7 +13,6 @@
     <% @contacts.each do |c| %>
       <div class="contact-card">
 
-
         <div class="contact-type">
           <% phones = c.phones.order('id ASC') %>
           <%= render_contact_type(phones) %>

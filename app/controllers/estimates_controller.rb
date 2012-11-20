@@ -1,5 +1,7 @@
 class EstimatesController < ApplicationController
 
+  layout 'profile'
+
   def index
     @estimates = Estimate.all
   end
@@ -29,7 +31,7 @@ class EstimatesController < ApplicationController
     @estimate = Estimate.find(params[:id])
 
     if @estimate.update_attributes(params[:estimate])
-      redirect_to estimates_path, notice: "Estimate updated!"
+      redirect_to profile_estimates_path(1), notice: "Estimate updated!"
     else
       render :new
     end
