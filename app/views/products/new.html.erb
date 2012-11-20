@@ -1,6 +1,6 @@
 <h1>Add Product</h1>
 
-<%= form_for [@profile, @product] do |f| %>
+<%= form_for [:profile, @product] do |f| %>
 
   <%= f.label :title %>
   <%= f.text_field :title %>

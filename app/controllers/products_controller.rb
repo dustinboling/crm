@@ -11,8 +11,7 @@ class ProductsController < ApplicationController
   end
 
   def new
-    @profile = Profile.find(params[:profile_id])
-    @product = @profile.product.build
+    @product = Product.new
   end
 
   def create
