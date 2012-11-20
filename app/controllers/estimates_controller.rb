@@ -19,7 +19,7 @@ class EstimatesController < ApplicationController
     @estimate = Estimate.new(params[:estimate])
 
     if @estimate.save
-      redirect_to estimates_path, notice: "Estimate added!"
+      redirect_to profile_estimates_path(1), notice: "Estimate added!"
     end
   end
 
