@@ -11,6 +11,11 @@ Valve::Application.routes.draw do
     resources :estimates
   end
 
+  namespace :api do
+    get "contacts/people"
+    get "contacts/organizations"
+  end
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
