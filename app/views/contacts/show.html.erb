@@ -9,7 +9,7 @@
   <% end %>
   <%= @contact.email %><br>
   <% @contact.phones.each do |p| %>
-    <%= number_to_phone(p.phone_number) %> - <%= p.phone_type %><br>
+    <%= number_to_phone(p.number) %> - <%= p.location %><br>
   <% end %>
 </address>
 

@@ -7,7 +7,7 @@ class Contact < ActiveRecord::Base
   has_many :taggings
   has_many :tags, through: :taggings
 
-  accepts_nested_attributes_for :phones, allow_destroy: true, :reject_if => lambda { |p| p[:phone_number].blank? }
+  accepts_nested_attributes_for :phones, allow_destroy: true, :reject_if => lambda { |p| p[:number].blank? }
 
   def full_name
     "#{first_name} #{last_name}"
