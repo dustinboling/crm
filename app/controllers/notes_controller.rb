@@ -15,6 +15,10 @@ class NotesController < ApplicationController
   def create
     @note = Note.new(params[:note])
     @note.user_id = current_user.id
+
+    if @note.save
+      redirect_to profile_activity_path(1)
+    end
   end
 
   def edit

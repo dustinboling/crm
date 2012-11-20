@@ -3,9 +3,8 @@ Valve::Application.routes.draw do
 
   get "pages/index"
 
-  # get "profile/show"
-  # get "profile/activity"
   resources :profile, only: [:show, :activity] do
+    get 'activity'
     resources :contacts
     resources :notes
   end
