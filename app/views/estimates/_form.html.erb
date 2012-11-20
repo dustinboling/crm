@@ -1,11 +1,11 @@
 <%= form_for [:profile, @estimate] do |f| %>
+
   <% estimate_number = fetch_estimate_number %>
+  <%= f.label :estimate_number %>
+  <%= f.number_field :estimate_number, value: estimate_number %>
 
   <%= f.label :client_id, "Client" %>
   <%= f.text_field :client_id %>
-
-  <%= f.label :estimate_number %>
-  <%= f.number_field :estimate_number, value: estimate_number %>
 
   <%= f.label :po_number %>
   <%= f.text_field :po_number %>
