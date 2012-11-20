@@ -39,7 +39,10 @@ class EstimatesController < ApplicationController
 
   def destroy
     @estimate = Estimate.find(params[:id])
-    @estimate.destroy
+
+    if @estimate.destroy
+      redirect_to profile_estimates_path(1)
+    end
   end
 
 end

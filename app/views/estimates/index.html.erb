@@ -11,5 +11,6 @@
     <%= e.terms %>
 
     <%= link_to "Edit", edit_profile_estimate_path(1, e) %>
+    <%= link_to "Destroy", profile_estimate_path(1, e), method: :delete, confirm: 'Are you sure you want to delete this estimate?' %>
   </div>
 <% end %>
