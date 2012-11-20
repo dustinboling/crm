@@ -1,0 +1,10 @@
+<%= link_to "+ New Product", new_profile_product_path(1), class: 'btn' %>
+
+<h1>Products</h1>
+
+<% @products.each do |p| %>
+  <div class="product">
+    <%= link_to p.title, p %><br>
+    <%= p.description %><br>
+  </div>
+<% end %>

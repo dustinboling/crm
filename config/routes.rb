@@ -3,10 +3,11 @@ Valve::Application.routes.draw do
 
   get "pages/index"
 
-  resources :profile, only: [:show, :activity] do
+  resources :profile, only: [:show] do
     get 'activity'
     resources :contacts
     resources :notes
+    resources :products
   end
 
   # The priority is based upon order of creation:

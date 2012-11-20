@@ -1,5 +1,6 @@
 class Profile < ActiveRecord::Base
   # attr_accessible :title, :body
+  has_many :users
 
   def self.generate_tag_list(user_id)
     user = User.find(user_id)
