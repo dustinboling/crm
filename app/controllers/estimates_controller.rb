@@ -41,7 +41,7 @@ class EstimatesController < ApplicationController
     @estimate = Estimate.find(params[:id])
 
     if @estimate.destroy
-      redirect_to profile_estimates_path(1)
+      redirect_to profile_estimates_path(1), notice: "Estimate ##{@estimate.estimate_number} destroyed!"
     end
   end
 
