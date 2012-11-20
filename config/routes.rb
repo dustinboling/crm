@@ -8,6 +8,7 @@ Valve::Application.routes.draw do
     resources :contacts
     resources :notes
     resources :products
+    resources :estimates
   end
 
   # The priority is based upon order of creation:
