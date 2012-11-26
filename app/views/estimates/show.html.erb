@@ -1,2 +1,33 @@
-<h1>Estimates#show</h1>
-<p>Find me in app/views/estimates/show.html.erb</p>
+<div id="estimate">
+  <h1>Estimate #<%= @estimate.estimate_number %></h1>
+  <%= link_to "Printable Estimate (PDF)", profile_estimate_path(1, @estimate, format: "pdf") %>
+
+  <table class="table">
+    <thead>
+      <tr>
+        <th></th>
+        <th>Name</th>
+        <th>Description</th>
+        <th>Quantity</th>
+        <th>Price</th>
+        <th>Tax</th>
+        <th>Line Total</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @estimate.items.each_with_index do |item, i| %>
+        <tr>
+          <th><%= i+1 %></th>
+          <td><%= item.name %></td>
+          <td><%= item.description %></td>
+          <td><%= item.quantity %></td>
+          <td><%= number_to_currency(item.price) %></td>
+          <td><%= item.tax %></td>
+          <td><%= number_to_currency(item.line_price) %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+  <h4 style="float: right;">Total Price: <%= number_to_currency(@estimate.total_price) %></h4>
+</div>
+

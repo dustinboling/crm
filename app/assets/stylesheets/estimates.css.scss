@@ -1,6 +1,18 @@
 // Place all the styles related to the estimates controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+#estimate {
+  a {
+    color: blue;
+  }
+
+  table {
+    td {
+      padding: 6px;
+    }
+  }
+}
+
 .new_estimate,
 .edit_estimate {
   .item-name {

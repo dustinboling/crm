@@ -8,6 +8,19 @@ class EstimatesController < ApplicationController
 
   def show
     @estimate = Estimate.find(params[:id])
+
+    respond_to do |format|
+      format.html
+      format.pdf do
+        pdf = EstimatePdf.new(@estimate, view_context)
+        send_data pdf.render,
+          filename: "estimate_#{@estimate.id}_#{Time.now.utc.to_i}.pdf",
+          type: "application/pdf"
+          # this will force the browser to render the pdf
+          # (won't work w/o a pdf browser plugin)
+          # disposition: "inline"
+      end
+    end
   end
 
   def new
@@ -46,3 +59,4 @@ class EstimatesController < ApplicationController
   end
 
 end
+
