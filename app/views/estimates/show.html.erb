@@ -22,7 +22,7 @@
           <td><%= item.description %></td>
           <td><%= item.quantity %></td>
           <td><%= number_to_currency(item.price) %></td>
-          <td><%= item.tax %></td>
+          <td><%= number_to_percentage(item.tax, precision: 2) %></td>
           <td><%= number_to_currency(item.line_price) %></td>
         </tr>
       <% end %>

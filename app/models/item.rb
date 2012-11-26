@@ -10,7 +10,7 @@ class Item < ActiveRecord::Base
     if tax == 0
       @actual_tax = 1
     else
-      @actual_tax = tax / 100.to_f
+      @actual_tax = (tax / 100.to_f) + 1
     end
     price * quantity * @actual_tax
   end

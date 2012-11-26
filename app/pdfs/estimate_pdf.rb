@@ -28,7 +28,7 @@ class EstimatePdf < Prawn::Document
   def line_item_rows
     [["Name", "Description", "Quantity", "Price", "Tax", "Line Total"]] +
     @estimate.items.map do |item|
-      [item.name, item.description, item.quantity, price(item.price), item.tax, @view.number_to_currency(item.line_price)]
+      [item.name, item.description, item.quantity, price(item.price), @view.number_to_percentage(item.tax, precision: 2), @view.number_to_currency(item.line_price)]
     end
   end
 
