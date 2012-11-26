@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121126221749) do
+ActiveRecord::Schema.define(:version => 20121126232232) do
 
   create_table "categories", :force => true do |t|
     t.text     "name"
@@ -55,7 +55,7 @@ ActiveRecord::Schema.define(:version => 20121126221749) do
     t.integer  "estimate_id"
     t.text     "description"
     t.text     "name"
-    t.integer  "price"
+    t.float    "price"
     t.integer  "quantity"
     t.decimal  "tax"
     t.datetime "created_at",  :null => false

@@ -4,6 +4,10 @@
   <td><%= f.text_field :quantity, class: 'item-quantity' %></td>
   <td><%= f.text_field :price, class: 'item-price' %></td>
   <td><%= f.text_field :tax, class: 'item-tax' %></td>
-  <td>TODO: full price</td>
+  <% if f.object.tax.nil? %>
+    <td></td>
+  <% else %>
+    <td><%= number_to_currency(f.object.line_price.inspect, precision: 2) %></td>
+  <% end %>
   <td><%= link_to "Remove", '#', class: "remove_fields btn red" %></td>
 </tr>
