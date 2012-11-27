@@ -1,18 +1,34 @@
 <h1 class="subtitle">Estimates</h1>
 <%= link_to "+ New Estimate", new_profile_estimate_path, class: "btn" %>
 
-<% @estimates.each do |e| %>
-  <div class="estimate">
-    <%= e.estimate_number %>
-    <%= e.date_issued %>
-    <%= e.discount %>
-    <%= e.notes %>
-    <%= e.po_number %>
-    <%= e.terms %>
-
-    <%= link_to "Show", profile_estimate_path(1, e) %>
-    <%= link_to "Edit", edit_profile_estimate_path(1, e) %>
-    <%= link_to "Destroy", profile_estimate_path(1, e), method: :delete, confirm: 'Are you sure you want to delete this estimate?' %>
-  </div>
-<% end %>
+<table class="table pad-reg">
+  <thead>
+    <tr>
+      <th>Date Issued</th>
+      <th>Estimate #</th>
+      <th>PO #</th>
+      <th>Discount</th>
+      <th>Terms</th>
+      <th>Total</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+  <% @estimates.each do |e| %>
+    <tr>
+      <td><%= e.date_issued %></td>
+      <td><%= e.estimate_number %></td>
+      <td><%= e.po_number %></td>
+      <td><%= e.discount %></td>
+      <td><%= e.terms %></td>
+      <td><%= number_to_currency(e.total_price) %></td>
+      <td>
+        <%= link_to "Show", profile_estimate_path(1, e) %>
+        <%= link_to "Edit", edit_profile_estimate_path(1, e) %>
+        <%= link_to "Destroy", profile_estimate_path(1, e), method: :delete, confirm: 'Are you sure you want to delete this estimate?' %>
+      </td>
+    </tr>
+  <% end %>
+  </tbody>
+</table>
 

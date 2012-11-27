@@ -181,6 +181,11 @@ table {
     text-align: left;
     vertical-align: top;
     border-top: 1px solid #ddd;
+
+    a {
+      color: blue;
+      text-decoration: none;
+    }
   }
   th {
     font-weight: bold;
@@ -308,4 +313,8 @@ body {
 
 .coral {
   color: coral;
+}
+
+.pad-reg td {
+  padding: 6px !important;
 }
