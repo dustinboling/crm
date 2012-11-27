@@ -23,8 +23,7 @@ class InvoicesController < ApplicationController
   def new
     if params[:estimate_id]
       @invoice = Invoice.create_from_estimate!(params[:estimate_id])
-
-      redirect_to profile_invoice_path(1, @invoice)
+      redirect_to edit_profile_invoice_path(1, @invoice)
     else
       @invoice = Invoice.new
       @item = @invoice.items.build
