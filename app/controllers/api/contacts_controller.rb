@@ -13,6 +13,8 @@ class Api::ContactsController < ApplicationController
   end
 
   def organizations
+    @organizations = Contact.all.order(:company)
+    render json: @organizations.map(&:company)
   end
 
 end
