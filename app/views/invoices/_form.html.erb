@@ -1,0 +1,52 @@
+<%= form_for [:profile, @invoice] do |f| %>
+
+  <% invoice_number = fetch_invoice_number %>
+  <%= f.label :invoice_number %>
+  <%= f.number_field :invoice_number, value: invoice_number %>
+
+  <%= f.label :client_id, "Client" %>
+  <%= f.text_field :client_id %>
+
+  <%= f.label :po_number %>
+  <%= f.text_field :po_number %>
+
+  <%= f.label :date_issued %>
+  <%= f.date_select :date_issued %>
+
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+        <th>Quantity</th>
+        <th>Price</th>
+        <th>Tax</th>
+        <th>Full Price</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <%= f.fields_for :items do |builder| %>
+        <%= render 'item_fields', f: builder %>
+      <% end %>
+      <tr>
+        <td><%= link_to_add_fields "Add Item", f, :items %></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <%= f.label :notes %>
+  <%= f.text_area :notes %>
+
+  <%= f.label :terms %>
+  <%= f.text_area :terms %>
+
+  <%= f.submit %>
+
+<% end %>

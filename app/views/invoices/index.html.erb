@@ -1,0 +1,17 @@
+<h1 class="subtitle">Invoices</h1>
+<%= link_to "+ New Invoice", new_profile_invoice_path, class: "btn" %>
+
+<% @invoices.each do |i| %>
+  <div class="invoice">
+    <%= i.invoice_number %>
+    <%= i.po_number %>
+    <%= i.date_issued %>
+    <%= i.discount %>
+    <%= i.notes %>
+    <%= i.terms %>
+
+    <%= link_to "Show", profile_invoice_path(1, i) %>
+    <%= link_to "Edit", edit_profile_invoice_path(1, i) %>
+    <%= link_to "Destroy", profile_invoice_path(1, i), method: :delete, confirm: "Are you sure you want to delete this invoice?" %>
+  </div>
+<% end %>

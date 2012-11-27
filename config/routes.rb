@@ -9,6 +9,7 @@ Valve::Application.routes.draw do
     resources :notes
     resources :products
     resources :estimates
+    resources :invoices
   end
 
   namespace :api do

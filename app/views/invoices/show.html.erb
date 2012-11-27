@@ -1,7 +1,6 @@
-<div id="estimate">
-  <h1>Estimate #<%= @estimate.estimate_number %></h1>
-  <%= link_to "Printable Estimate (PDF)", profile_estimate_path(1, @estimate, format: "pdf") %>
-  <%= link_to "Convert to Invoice", new_profile_invoice_path(1, estimate_id: @estimate.id) %>
+<div id="invoice">
+  <h1>Invoice #<%= @invoice.invoice_number %></h1>
+  <%= link_to "Printable Invoice (PDF)", profile_invoice_path(1, @invoice, format: "pdf") %>
 
   <table class="table">
     <thead>
@@ -16,7 +15,7 @@
       </tr>
     </thead>
     <tbody>
-      <% @estimate.items.each_with_index do |item, i| %>
+      <% @invoice.items.each_with_index do |item, i| %>
         <tr>
           <th><%= i+1 %></th>
           <td><%= item.name %></td>
@@ -29,6 +28,6 @@
       <% end %>
     </tbody>
   </table>
-  <h4 style="float: right;">Total Price: <%= number_to_currency(@estimate.total_price) %></h4>
+  <h4 style="float: right;">Total Price: <%= number_to_currency(@invoice.total_price) %></h4>
 </div>
 
